@@ -19,7 +19,7 @@ def calculate_ranked_avg(players_drafted: dict[str, int], cumulative_ranks: dict
     ranked_avg = {}
     for team in players_drafted:
         ranked_avg[team] = float(cumulative_ranks[team] / players_drafted[team])
-    return dict(sorted(ranked_avg.items(), key=lambda item: item[1]))
+    return dict(sorted(ranked_avg.items(), key=lambda item: item[1], reverse=True))
 
 def save_rankings_to_csv(output_path: str, ranked_avg: dict[str, float], players_drafted: dict[str, int]) -> None:
     with open(output_path, "w", newline='', encoding='utf-8') as file:
